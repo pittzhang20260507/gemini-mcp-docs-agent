@@ -38,3 +38,6 @@
 - cron 的 PATH 不含 `/snap/bin`，令牌刷新一直**静默失败**：cron 里用 snap 程序必须显式设 PATH，并用 `env -i` 模拟 cron 环境实测
 - 令牌脚本用了 `2>&1`，gcloud 警告混进令牌文件，导致令牌写进日志：处理凭据的命令一律把 stderr 分开，并校验令牌格式
 - 多用户环境只用 root 测通就说“通了”：必须用**实际使用者的身份**实测
+
+---
+演示视频：https://youtu.be/l67ilza4aGk（英文配音，中英字幕）　·　作者博客：https://api-cloud.cc

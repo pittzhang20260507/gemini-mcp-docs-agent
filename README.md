@@ -3,7 +3,9 @@
 > An infrastructure-operations agent that **only answers from official upstream documentation** and cites the exact source for every step.
 > Built on **Gemini**, the **Model Context Protocol (MCP)**, and **Vertex AI Search**.
 
-▶️ **Demo video (2 min, English narration, EN/ZH subtitles):** https://youtu.be/l67ilza4aGk
+▶️ **Demo video (2 min, English narration, EN/ZH subtitles):** https://youtu.be/l67ilza4aGk · [download MP4](media/demo.mp4) · subtitles: [EN](media/demo.en.srt) / [中文](media/demo.zh.srt) / [EN+中文](media/demo.en-zh.srt)
+
+✍️ **Author's blog / 作者博客:** https://api-cloud.cc
 
 ## The problem
 
@@ -108,3 +110,7 @@ Full story in Chinese: [docs/JOURNEY.zh-CN.md](docs/JOURNEY.zh-CN.md). Summary:
 ## License
 
 Apache-2.0
+
+---
+
+More write-ups on AI-native infrastructure operations: **https://api-cloud.cc**

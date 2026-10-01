@@ -1,0 +1,107 @@
+1
+00:00:00,446 --> 00:00:06,154
+Official-Docs Ops Agent, built with Gemini, the Model Context Protocol, and Vertex AI Search.
+
+2
+00:00:06,154 --> 00:00:11,395
+It's an infrastructure assistant that answers only from official documentation, and shows you the source.
+
+3
+00:00:12,391 --> 00:00:15,817
+AI assistants are now part of everyday infrastructure work.
+
+4
+00:00:15,817 --> 00:00:18,521
+Their most dangerous failure isn't saying I don't know.
+
+5
+00:00:18,521 --> 00:00:23,028
+It's a confident answer built on an outdated blog post, or a half-remembered flag.
+
+6
+00:00:23,028 --> 00:00:26,745
+On a production firewall, one wrong line can lock you out of the server.
+
+7
+00:00:27,735 --> 00:00:36,525
+Thirty official upstream repositories, from Kubernetes and vLLM to nftables and systemd, sync every night into Vertex AI Search.
+
+8
+00:00:36,525 --> 00:00:41,389
+That's eight thousand five hundred documents, with stable IDs and commit-pinned links.
+
+9
+00:00:41,389 --> 00:00:45,918
+On top of that, an MCP server exposes one tool, search official docs.
+
+10
+00:00:45,918 --> 00:00:51,293
+A Gemini agent calls it, answers only from the returned passages, and cites every step.
+
+11
+00:00:52,302 --> 00:00:54,359
+Here's the MCP server on its own.
+
+12
+00:00:54,359 --> 00:00:57,397
+A real MCP client lists the tool and calls it.
+
+13
+00:00:57,397 --> 00:01:02,116
+For the drain question, it returns the Kubernetes drain and disruption budget pages.
+
+14
+00:01:02,116 --> 00:01:07,858
+Redis Sentinel isn't in the sample corpus, so it returns nothing, and the agent refuses instead of guessing.
+
+15
+00:01:08,846 --> 00:01:10,681
+This is our production knowledge base.
+
+16
+00:01:10,681 --> 00:01:12,773
+One question, under six seconds.
+
+17
+00:01:12,773 --> 00:01:20,730
+You get a step-by-step answer generated from the docs, and every citation points to the exact file in the Kubernetes repository, pinned to a commit.
+
+18
+00:01:21,724 --> 00:01:27,520
+Ask about Oracle RAC, and it tells you plainly, out of domain, no answer, no citations.
+
+19
+00:01:28,513 --> 00:01:30,158
+The design changed along the way.
+
+20
+00:01:30,158 --> 00:01:34,610
+We started with four AI agents living on the server, each with its own credentials.
+
+21
+00:01:34,610 --> 00:01:42,356
+Managing identities per agent was fragile, so now no AI lives on the server, only one locked-down account that can do nothing but ask.
+
+22
+00:01:42,356 --> 00:01:50,268
+We moved MCP to the client side, switched to short-lived tokens because long-lived keys are blocked, and serialized imports after hitting conflicts.
+
+23
+00:01:51,257 --> 00:01:54,828
+Built by one human operator, with Claude Code as the builder.
+
+24
+00:01:54,828 --> 00:02:00,637
+Codex reviewed it independently and found four real bugs, and Gemini and Grok use it as consumers.
+
+25
+00:02:00,637 --> 00:02:03,030
+Our rule is stability over capability.
+
+26
+00:02:03,030 --> 00:02:05,668
+It's open source under Apache 2.0.
+
+27
+00:02:05,668 --> 00:02:07,036
+Try it with your own question.
