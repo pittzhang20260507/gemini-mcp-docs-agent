@@ -3,6 +3,8 @@
 > An infrastructure-operations agent that **only answers from official upstream documentation** and cites the exact source for every step.
 > Built on **Gemini**, the **Model Context Protocol (MCP)**, and **Vertex AI Search**.
 
+▶️ **Demo video (2 min, English narration, EN/ZH subtitles):** https://youtu.be/l67ilza4aGk
+
 ## The problem
 
 AI assistants are now part of day-to-day ops work (Kubernetes, nftables, fail2ban, vLLM, systemd...). Their most dangerous failure is not "I don't know"; it's a confident answer built from an outdated blog post or a half-remembered flag. On production firewalls and clusters, one wrong line can lock you out of a server.
