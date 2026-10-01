@@ -1,0 +1,65 @@
+[
+  {
+    "project": "kubernetes",
+    "title": "Safely Drain a Node",
+    "url": "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/",
+    "keywords": ["drain", "node", "maintenance", "evict", "cordon", "uncordon"],
+    "text": "Use `kubectl drain <node name>` to safely evict all pods from a node before maintenance. Drain marks the node unschedulable (cordon) and evicts pods, respecting PodDisruptionBudgets. DaemonSet-managed pods usually require `--ignore-daemonsets`. After maintenance, run `kubectl uncordon <node name>` to make the node schedulable again."
+  },
+  {
+    "project": "kubernetes",
+    "title": "Specifying a Disruption Budget for your Application",
+    "url": "https://kubernetes.io/docs/tasks/run-application/configure-pdb/",
+    "keywords": ["pdb", "poddisruptionbudget", "minavailable", "maxunavailable", "drain", "eviction"],
+    "text": "A PodDisruptionBudget (PDB) limits how many pods of a replicated application can be down simultaneously from voluntary disruptions such as `kubectl drain`. Set either `minAvailable` or `maxUnavailable` together with a label `selector`. Evictions that would violate the budget are rejected and retried."
+  },
+  {
+    "project": "k3s",
+    "title": "K3s Configuration Options",
+    "url": "https://docs.k3s.io/installation/configuration",
+    "keywords": ["k3s", "config.yaml", "flags", "server", "agent"],
+    "text": "K3s can be configured with CLI flags, environment variables, or a config file at `/etc/rancher/k3s/config.yaml`. Keys in the config file match CLI flag names without the leading dashes. Settings in the config file and flags are merged."
+  },
+  {
+    "project": "vllm",
+    "title": "OpenAI-Compatible Server",
+    "url": "https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html",
+    "keywords": ["vllm", "serve", "openai", "api", "inference", "llm", "api-key"],
+    "text": "vLLM provides an HTTP server implementing OpenAI's Completions and Chat API. Start it with `vllm serve <model>`. Clients can use the official OpenAI Python client by pointing `base_url` to the vLLM server. Use `--api-key` to require a key on requests."
+  },
+  {
+    "project": "nftables",
+    "title": "Sets",
+    "url": "https://wiki.nftables.org/wiki-nftables/index.php/Sets",
+    "keywords": ["nftables", "nft", "set", "interval", "cidr", "whitelist", "element"],
+    "text": "nftables sets group elements such as IP addresses for matching in rules. To store network prefixes (CIDR ranges) a named set must be declared with `flags interval`. Elements are added with `nft add element <family> <table> <set> { ... }`."
+  },
+  {
+    "project": "fail2ban",
+    "title": "jail.conf: ignoreip",
+    "url": "https://github.com/fail2ban/fail2ban/blob/master/config/jail.conf",
+    "keywords": ["fail2ban", "ignoreip", "whitelist", "jail", "bantime", "findtime", "maxretry"],
+    "text": "`ignoreip` lists IP addresses, CIDR masks or DNS hosts that fail2ban will never ban. Override settings in `jail.local` or `jail.d/*.local` instead of editing `jail.conf`. `bantime`, `findtime` and `maxretry` control ban duration and the detection window."
+  },
+  {
+    "project": "systemd",
+    "title": "systemd.timer",
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html",
+    "keywords": ["systemd", "timer", "oncalendar", "persistent", "cron", "schedule"],
+    "text": "A `.timer` unit activates a matching `.service` unit on a schedule. `OnCalendar=` defines wall-clock schedules; `Persistent=true` runs a missed job at next boot. `RandomizedDelaySec=` spreads load. Inspect timers with `systemctl list-timers`."
+  },
+  {
+    "project": "prometheus",
+    "title": "Prometheus Configuration",
+    "url": "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+    "keywords": ["prometheus", "scrape", "scrape_interval", "scrape_configs", "reload", "config"],
+    "text": "Prometheus is configured via a YAML file passed with `--config.file`. `scrape_configs` define targets and `scrape_interval` how often to scrape. The configuration can be reloaded at runtime by sending SIGHUP or POST to `/-/reload` when `--web.enable-lifecycle` is set."
+  },
+  {
+    "project": "mcp",
+    "title": "MCP Specification: Tools",
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+    "keywords": ["mcp", "tool", "tools/list", "tools/call", "inputschema", "model context protocol"],
+    "text": "MCP servers expose tools that language models can invoke. Clients discover them with `tools/list` and invoke them with `tools/call`. Each tool has a name, description and a JSON Schema `inputSchema`; results are returned as content items."
+  }
+]

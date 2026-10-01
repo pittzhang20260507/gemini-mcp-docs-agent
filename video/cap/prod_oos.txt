@@ -1,0 +1,4 @@
+$ ssh <kb-host> ask --json "How do I configure Oracle RAC interconnect?"
+  "elapsed_s": 2.16,  "answered": false
+  "skipped_reasons": ["OUT_OF_DOMAIN_QUERY_IGNORED"]
+  "citations": []

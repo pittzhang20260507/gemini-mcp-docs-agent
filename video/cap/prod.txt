@@ -1,0 +1,25 @@
+$ ssh <kb-host> ask --json "How do I drain a Kubernetes node safely?"
+  "elapsed_s": 5.83,  "answered": true,  "grounding_score": 0.696
+  "answer":
+     To safely drain a Kubernetes node and prepare it for maintenance or removal, follow these steps:
+     ### 1. Identify the Node Name
+     First, list all the nodes in your cluster to identify the exact name of the node you wish to dra
+     kubectl get nodes
+     ### 2. Drain the Node
+     From a machine with access to the Kubernetes API, run the `kubectl drain` command. This command 
+     If there are pods managed by a DaemonSet, you must specify the `--ignore-daemonsets` flag to suc
+     Run the following command, replacing `<node-name>` with your target node's name:
+     kubectl drain <node-name> --ignore-daemonsets
+     *(Note: Depending on your workload requirements, you may also need to append other flags such as
+     During this process, `kubectl drain` will submit eviction requests that respect your configured 
+     ### 3. Perform Maintenance or Power Down
+     Once the command returns successfully without errors, the node is safely drained. You can now sa
+     ### 4. Bring the Node Back Online (Uncordon)
+     ...
+  "citations":
+    [kubernetes] https://github.com/kubernetes/website/blob/0d1ea254.../content/en/docs/tasks/administer-cluster/kubeadm/upgrading-windows-nodes.md
+    [kubernetes] https://github.com/kubernetes/website/blob/0d1ea254.../content/en/docs/tasks/administer-cluster/safely-drain-node.md
+    [kubernetes] https://github.com/kubernetes/website/blob/0d1ea254.../content/en/docs/concepts/workloads/pods/disruptions.md
+    [kubernetes] https://github.com/kubernetes/website/blob/0d1ea254.../content/en/docs/tutorials/stateful-application/zookeeper.md
+    [kubernetes] https://github.com/kubernetes/website/blob/0d1ea254.../content/en/docs/reference/node/node-lifecycle-conditions.md
+    [kubernetes] https://github.com/kubernetes/website/blob/0d1ea254.../content/en/docs/reference/glossary/drain.md

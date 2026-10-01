@@ -1,0 +1,5 @@
+$ DOCS_BACKEND=demo python tests_smoke.py "How do I drain a Kubernetes node safely?"
+tools: ['search_official_docs']
+found: True
+ - kubernetes | https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/ | Use `kubectl drain <node name>` to safely evict all pods from a node before maintenance. D
+ - kubernetes | https://kubernetes.io/docs/tasks/run-application/configure-pdb/ | A PodDisruptionBudget (PDB) limits how many pods of a replicated application can be down s

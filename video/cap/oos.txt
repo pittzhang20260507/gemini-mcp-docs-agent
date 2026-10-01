@@ -1,0 +1,3 @@
+$ DOCS_BACKEND=demo python tests_smoke.py "Redis Sentinel failover quorum"
+tools: ['search_official_docs']
+found: False
