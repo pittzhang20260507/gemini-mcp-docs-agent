@@ -5,6 +5,8 @@
 
 ▶️ **Demo video (2 min, English narration, EN/ZH subtitles):** https://youtu.be/l67ilza4aGk · [download MP4](media/demo.mp4) · subtitles: [EN](media/demo.en.srt) / [中文](media/demo.zh.srt) / [EN+中文](media/demo.en-zh.srt)
 
+🏆 **Devpost:** https://devpost.com/software/official-docs-mcp-evidence-layer-for-ai-agents
+
 ✍️ **Author's blog / 作者博客:** https://api-cloud.cc
 
 ## The problem
@@ -82,8 +84,10 @@ This project was built by one human operator working with several AI agents, eac
 |---|---|
 | **Human operator** | Owns every decision: approved each production change, chose the architecture pivots, and set the "no AI acts without assignment" rule |
 | **Claude Code** (WSL) | Main builder: server setup, sync pipeline, `ask` CLI, SSH gate, this MCP + Gemini demo, plus daily journal and rollback checkpoints |
-| **Codex** | Independent **read-only reviewer**. Its acceptance review found 4 real issues (evidence-folder collisions under concurrency, partial-import handling, token-format validation, out-of-scope detection), all fixed |
+| **Codex** | Independent **read-only reviewer**. Its acceptance review found 4 real issues (evidence-folder collisions under concurrency, partial-import handling, token-format validation, out-of-scope detection), all fixed. Also a knowledge-base consumer |
 | **Gemini / Grok** | Consumers: they query the knowledge base with their own restricted key instead of living on the server |
+
+**Every agent is required to check the knowledge base.** Each agent's CLI has a rule (for Claude Code, a Stop hook) that blocks a web-researched answer until one knowledge-base call has been made; what to adopt is the agent's own decision. Each agent has its own restricted key, and usage is audited from the server log, never from self-reports. As of 2026-10-04 the log shows real calls from all four: Claude 34, Grok 18, Codex 17, Gemini 10.
 
 The point of this setup: **stability over capability**. An agent that drifts, guesses, or changes defaults on its own is not usable on shared infrastructure, even if it's smart. Grounding answers in official docs is the same idea applied to knowledge.
 
