@@ -5,3 +5,13 @@ __pycache__/
 dist/
 video/out/
 video/*.png
+
+# Devpost Learn: keep personal learning context and local credentials out of commits
+/devpost/learner-profile.md
+.env.*
+!.env.example
+
+# Devpost Learn Skill Pack: installed skill copies stay local; skills-lock.json records the source
+/.agents/
+/.claude/
+/agent/

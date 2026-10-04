@@ -107,6 +107,10 @@ Full story in Chinese: [docs/JOURNEY.zh-CN.md](docs/JOURNEY.zh-CN.md). Summary:
 - The model can still misread a correct passage. Citations make that checkable but don't prevent it.
 - The `ssh` backend returns one grounded summary plus citations, not raw passages.
 
+## Hackathon planning docs
+
+Planning documents for Devpost *Build With AI: Basics*: [scope](devpost/scope.md) · [PRD](devpost/prd.md) · [spec](devpost/spec.md). They were written with the Devpost Learn Skill Pack templates after the build and record the final design and how it evolved.
+
 ## License
 
 Apache-2.0
